@@ -12,12 +12,20 @@ public class DisplayWhatFigureSelected {
         String text = cs.nextLine();
 
         try{
-            return Integer.parseInt(text);
+            if((Integer.parseInt(text)<=6)&&(Integer.parseInt(text)!=0)) {
+                return Integer.parseInt(text);
+            }
+
+            else {
+                System.out.println("Err: Нет совпадений.\n");
+            }
+
         }
         catch (NumberFormatException e){
             System.out.println("Err: Введенный символ не является целым числом\n");
         }
-        return getDataFromConsole();
+
+         return getDataFromConsole();
     }
 
     public static void selectGeomFigure() {
@@ -31,6 +39,7 @@ public class DisplayWhatFigureSelected {
 
         String figure = figureNumber.get(getDataFromConsole());
         System.out.println(figure);
+
     }
 
     public static void main(String[] args) {
