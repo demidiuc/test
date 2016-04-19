@@ -1,34 +1,26 @@
-package Scanner;
-
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class DisplayWhatFigureSelected {
 
-    public static int getDataFromConsole() {
+    public Integer getDataFromConsole() {
         Scanner cs = new Scanner(System.in);
 
         System.out.println("Enter the text:\n");
         String text = cs.nextLine();
 
         try{
-            if((Integer.parseInt(text)<=6)&&(Integer.parseInt(text)!=0)) {
-                return Integer.parseInt(text);
-            }
-
-            else {
-                System.out.println("Err: Нет совпадений.\n");
-            }
-
+            return Integer.parseInt(text);
         }
         catch (NumberFormatException e){
             System.out.println("Err: Введенный символ не является целым числом\n");
         }
 
-         return getDataFromConsole();
+        return getDataFromConsole();
     }
 
-    public static void selectGeomFigure() {
+    public Map<Integer, String> selectGeomFigure() {
         HashMap<Integer, String> figureNumber = new HashMap<Integer, String>();
         figureNumber.put(1, "Круг");
         figureNumber.put(2, "Треугольник");
@@ -36,13 +28,13 @@ public class DisplayWhatFigureSelected {
         figureNumber.put(4, "Прямоугольник");
         figureNumber.put(5, "Ромб");
         figureNumber.put(6, "Трапеция");
-
-        String figure = figureNumber.get(getDataFromConsole());
-        System.out.println(figure);
-
+        return figureNumber;
     }
 
-    public static void main(String[] args) {
-        selectGeomFigure();
+    public String displayUsersFigure() {
+        Integer xtext = getDataFromConsole();
+        Map<Integer, String> xFigureg = selectGeomFigure();
+
+        return xFigureg.get(xtext);
     }
 }
