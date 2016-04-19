@@ -1,7 +1,9 @@
+package Scanner;
+
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class ShowUserChoice {
+public class DisplayWhatFigureSelected {
 
     public static int getDataFromConsole() {
         Scanner cs = new Scanner(System.in);
@@ -18,7 +20,7 @@ public class ShowUserChoice {
         return getDataFromConsole();
     }
 
-    public static void setupDefaultValues() {
+    public static void selectGeomFigure() {
         HashMap<Integer, String> figureNumber = new HashMap<Integer, String>();
         figureNumber.put(1, "Круг");
         figureNumber.put(2, "Треугольник");
@@ -32,6 +34,6 @@ public class ShowUserChoice {
     }
 
     public static void main(String[] args) {
-        setupDefaultValues();
+        selectGeomFigure();
     }
 }
