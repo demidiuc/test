@@ -1,8 +1,18 @@
+package Scanner;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class DisplayWhatFigureSelected {
+
+    public String getFigureName() {
+        //Integer xtext = getDataFromConsole();
+        Integer xtext = 1;
+        Map<Integer, String> xFigureg = getMapWithFigures();
+
+        return xFigureg.get(xtext);
+    }
 
     public Integer getDataFromConsole() {
         Scanner cs = new Scanner(System.in);
@@ -20,7 +30,7 @@ public class DisplayWhatFigureSelected {
         return getDataFromConsole();
     }
 
-    public Map<Integer, String> selectGeomFigure() {
+    public Map<Integer, String> getMapWithFigures() {
         HashMap<Integer, String> figureNumber = new HashMap<Integer, String>();
         figureNumber.put(1, "Круг");
         figureNumber.put(2, "Треугольник");
@@ -31,10 +41,10 @@ public class DisplayWhatFigureSelected {
         return figureNumber;
     }
 
-    public String displayUsersFigure() {
-        Integer xtext = getDataFromConsole();
-        Map<Integer, String> xFigureg = selectGeomFigure();
 
-        return xFigureg.get(xtext);
+
+    public static void main(String[] args) {
+        DisplayWhatFigureSelected xu = new DisplayWhatFigureSelected();
+        System.out.println(xu.getFigureName());
     }
 }
