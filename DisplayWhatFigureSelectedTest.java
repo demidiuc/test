@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class DisplayWhatFigureSelectedTest {
     @Test
-    public void ifConsole1KrugReturned(){
+    public void ifConsole1CircleReturned(){
 
         DisplayWhatFigureSelected returnedFigure = new DisplayWhatFigureSelected();
         Map<Integer, String> mapWithFiguresTest = returnedFigure.getMapWithFigures();
@@ -13,7 +13,18 @@ public class DisplayWhatFigureSelectedTest {
 
         String res = mapWithFiguresTest.get(consoleEm);
 
-        Assert.assertEquals("Круг", res);
+        Assert.assertEquals("Circle", res);
     }
 
+    @Test
+    public void ifConsole999NullReturned(){
+
+        DisplayWhatFigureSelected returnedFigure = new DisplayWhatFigureSelected();
+        Map<Integer, String> mapWithFiguresTest = returnedFigure.getMapWithFigures();
+        Integer consoleEm = 999;
+
+        String res = mapWithFiguresTest.get(consoleEm);
+
+        Assert.assertNull(res);
+    }
 }
